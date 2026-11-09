@@ -1,127 +1,87 @@
-# Awesome-Background-Task-Queue-Worker-Engine
+# Awesome Background Task Queues, Job Schedulers & Worker Engines [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-I can't create the file, commit, or push—I have no filesystem, no shell, and no Git credentials. Everything I produce is text. You will need to save and push it yourself.
+> A curated list of awesome background task queues, distributed job workers, asynchronous processing engines, and durable workflow orchestrators.
 
+Background task queues and worker engines allow applications to offload time-consuming, I/O-heavy, or periodic tasks (like image processing, email delivery, AI agent orchestration, and payment processing) from HTTP request-response cycles, ensuring resilience, lower latency, and graceful horizontal scalability.
 
+---
 
-I also have to flag what the search results actually support, because **"Zoho Worker" and "Celery Cloud" do not exist as products**, and **several entries are libraries, not SaaS platforms**.
+## Table of Contents
 
+- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
+- [SaaS & Managed Platforms](#saas--managed-platforms)
+- [Open-Source Task Queues & Worker Engines](#open-source-task-queues--worker-engines)
+- [Architecture & Metering Comparison](#architecture--metering-comparison)
+- [Contributing](#contributing)
 
+---
 
-## The data problems
+## Sector Overview & Market Dynamics
 
+The workflow orchestration and job scheduling software market is estimated at **$13 billion to $18 billion**, projected to grow at a **13%–23% CAGR** to surpass **$40+ billion** driven by cloud modernization and autonomous AI agent workloads. 
 
+The market dynamics exhibit a barbell structure:
+- **Open-source & developer libraries are highly fragmented**: Developers choose specialized libraries matched to their programming languages (e.g., Celery for Python, BullMQ for Node.js, Sidekiq for Ruby, Asynq for Go) and broker backends (Redis, PostgreSQL, RabbitMQ).
+- **Managed cloud infrastructure is consolidating**: High-scale enterprise deployments gravitate toward hyperscaler managed primitives (such as AWS SQS) or high-growth specialized durable workflow platforms (such as Temporal Cloud), demonstrating strong consolidation at the managed infrastructure tier.
 
-**"Zoho Worker" does not exist as a background task queue.** Zoho's job scheduling is a feature of **Zoho Catalyst** (Job Scheduling for Job Functions, Webhooks, Circuits, and AppSail) . There is no standalone "Zoho Worker" product. **Remove it or reframe as "Zoho Catalyst Job Scheduling (feature)."**
+---
 
+## SaaS & Managed Platforms
 
+The table below outlines managed background job processing platforms and developer cloud queues, sorted by company size (valuation / revenue run-rate / market capitalization in descending order).
 
-**"Celery Cloud" does not exist.** Celery is a **BSD-3-Clause open-source library** you install and run on your own infrastructure—there is no hosted service, no account, no metering, and no billing relationship . Any "Celery Cloud" pricing you have seen is fabricated. **List Celery in the open-source section only.**
+| Platform | Company Size (Valuation / Revenue / Market Cap) | Starting Tier Pricing | Free Tier Limits / Free Trial | Deployment / Architecture |
+|---|---|---|---|---|
+| [**AWS SQS**](https://aws.amazon.com/sqs/) | **$1.8T+ Market Cap** (Amazon Parent) / AWS ~$168B+ ARR | **$0.40 per 1 million requests** (Standard); $0.50 per 1M requests (FIFO) after free tier | **1,000,000 requests/month free forever** (across all regions; 64 KB payload chunks) | Fully managed serverless distributed message queuing service |
+| [**Temporal Cloud**](https://temporal.io/) | **$12.55B Valuation** / $250M+ ARR | **$50.00 per 1 million actions** (plus active storage: $0.042/GB-hr, retention: $0.00105/GB-hr) | **90-day free trial with $150 credit** and self-paced sandbox environment | Managed durable execution engine & stateful workflow platform |
+| [**Inngest Cloud**](https://www.inngest.com/) | **$34M VC Funding** (Notable Capital, Series A) | **$99.00/month** (Pro plan, includes 1M executions, 15 seats; additional executions $50/1M) | **Free forever plan: 50,000 executions/month**, 5 team seats, 7-day log retention | Event-driven durable background jobs & step functions |
+| [**Trigger.dev Cloud**](https://trigger.dev/) | **$16M–$19M VC Funding** (Series A, a16z/Standard Capital) | **$10.00/month** (Hobby plan: 50 concurrent runs, 7-day log retention) | **Free forever plan: 20 concurrent runs, 1,000 runs/month, $5 compute credits/month**, 1-day retention | Open-core full-stack background jobs & AI workflow orchestrator |
+| [**Upstash QStash**](https://upstash.com/docs/qstash/overall/pricing) | **$11.9M VC Funding** (Series A, a16z) | **$1.00 per 100,000 messages** (Pay-as-you-go; Fixed tiers start at $180/mo for 1M msg/day) | **Free forever plan: 1,000 messages/day**, 10 concurrent requests, message retries included | Serverless HTTP-based message queue, scheduler, and worker trigger |
+| [**Sidekiq Pro / Enterprise**](https://sidekiq.org/) | **$2.9M ARR** (Contributed Systems / Mike Perham, Bootstrapped) | **$99.00/month** (Sidekiq Pro); $269.00/month (Sidekiq Enterprise) | **No automated free trial**; full-featured open-source (LGPL) core is free forever | Commercial extension license for Redis-backed Ruby job queue |
+| [**BullMQ Pro**](https://bullmq.io/) | **Bootstrapped / Early Stage** (Taskforce.sh) | **$116.00/month** (Standard plan, billed annually at $1,392/yr; or $139/month monthly) | **15-day free trial** with full access to Pro features; open-source core is free forever | Commercial extension license for Redis/Valkey Node.js queue |
 
+---
 
+## Open-Source Task Queues & Worker Engines
 
-**Sidekiq Enterprise is $269/month starting**; Pro is **$99/month** . The Appliance license (for distribution to customers) is **$14,995/year for Pro** and **$39,995/year for Enterprise** .
+Curated open-source task queue systems, background workers, and workflow orchestrators, sorted by GitHub star count in descending order.
 
+| Repository | GitHub Stars | Primary Language | Broker / Backend Storage | Highlights & Primary Focus |
+|---|---|---|---|---|
+| [**Celery**](https://github.com/celery/celery) | [![GitHub stars](https://img.shields.io/github/stars/celery/celery?style=social&color=white)](https://github.com/celery/celery/stargazers) | Python | RabbitMQ, Redis, Amazon SQS | Industry-standard asynchronous distributed task queue and worker framework for Python applications. |
+| [**Temporal**](https://github.com/temporalio/temporal) | [![GitHub stars](https://img.shields.io/github/stars/temporalio/temporal?style=social&color=white)](https://github.com/temporalio/temporal/stargazers) | Go | PostgreSQL, MySQL, Cassandra | Developer-first durable execution platform that makes background workflows invulnerable to infrastructure failures. |
+| [**Trigger.dev**](https://github.com/triggerdotdev/trigger.dev) | [![GitHub stars](https://img.shields.io/github/stars/triggerdotdev/trigger.dev?style=social&color=white)](https://github.com/triggerdotdev/trigger.dev/stargazers) | TypeScript | PostgreSQL | Open-source background jobs framework designed for long-running tasks, APIs, LLM calls, and async workflows. |
+| [**Bull**](https://github.com/OptimalBits/bull) | [![GitHub stars](https://img.shields.io/github/stars/OptimalBits/bull?style=social&color=white)](https://github.com/OptimalBits/bull/stargazers) | TypeScript / JavaScript | Redis | The original fast, robust, Redis-based queue for Node.js with millions of downloads. |
+| [**Asynq**](https://github.com/hibiken/asynq) | [![GitHub stars](https://img.shields.io/github/stars/hibiken/asynq?style=social&color=white)](https://github.com/hibiken/asynq/stargazers) | Go | Redis | Simple, reliable, and efficient distributed task queue in Go powered by Redis. |
+| [**Sidekiq**](https://github.com/sidekiq/sidekiq) | [![GitHub stars](https://img.shields.io/github/stars/sidekiq/sidekiq?style=social&color=white)](https://github.com/sidekiq/sidekiq/stargazers) | Ruby | Redis | High-performance, multi-threaded background processing framework for Ruby and Rails applications. |
+| [**RQ (Redis Queue)**](https://github.com/rq/rq) | [![GitHub stars](https://img.shields.io/github/stars/rq/rq?style=social&color=white)](https://github.com/rq/rq/stargazers) | Python | Redis | Lightweight, clean Python library for queuing jobs and processing them in the background with workers. |
+| [**Agenda**](https://github.com/agenda/agenda) | [![GitHub stars](https://img.shields.io/github/stars/agenda/agenda?style=social&color=white)](https://github.com/agenda/agenda/stargazers) | JavaScript | MongoDB | Lightweight background job scheduling engine for Node.js using MongoDB for persistence. |
+| [**BullMQ**](https://github.com/taskforcesh/bullmq) | [![GitHub stars](https://img.shields.io/github/stars/taskforcesh/bullmq?style=social&color=white)](https://github.com/taskforcesh/bullmq/stargazers) | TypeScript | Redis / Valkey | Next-generation modern TypeScript job and message queue based on Redis streams. |
+| [**Resque**](https://github.com/resque/resque) | [![GitHub stars](https://img.shields.io/github/stars/resque/resque?style=social&color=white)](https://github.com/resque/resque/stargazers) | Ruby | Redis | The classic Redis-backed Ruby library for creating background jobs and placing multiple workers on queues. |
+| [**Hatchet**](https://github.com/hatchet-dev/hatchet) | [![GitHub stars](https://img.shields.io/github/stars/hatchet-dev/hatchet?style=social&color=white)](https://github.com/hatchet-dev/hatchet/stargazers) | Go / TypeScript / Python | PostgreSQL | High-throughput distributed background task runner designed to replace legacy queues and orchestrate async steps. |
+| [**Machinery**](https://github.com/RichardKnop/machinery) | [![GitHub stars](https://img.shields.io/github/stars/RichardKnop/machinery?style=social&color=white)](https://github.com/RichardKnop/machinery/stargazers) | Go | Redis, AMQP, Memcache, MongoDB | An asynchronous task queue/job queue based on distributed message passing in Golang. |
+| [**Flower**](https://github.com/mher/flower) | [![GitHub stars](https://img.shields.io/github/stars/mher/flower?style=social&color=white)](https://github.com/mher/flower/stargazers) | Python | Celery Broker | Real-time web-based monitoring tool and administration dashboard for Celery task queues. |
+| [**Huey**](https://github.com/coleifer/huey) | [![GitHub stars](https://img.shields.io/github/stars/coleifer/huey?style=social&color=white)](https://github.com/coleifer/huey/stargazers) | Python | Redis, SQLite, In-memory | Little, multi-threaded task queue for Python with simple syntax and zero heavy dependencies. |
+| [**Inngest**](https://github.com/inngest/inngest) | [![GitHub stars](https://img.shields.io/github/stars/inngest/inngest?style=social&color=white)](https://github.com/inngest/inngest/stargazers) | Go / TypeScript | PostgreSQL, Redis, Dev Server | Durable execution and background job engine with step functions, sleep/delay, and concurrency limits. |
+| [**River**](https://github.com/riverqueue/river) | [![GitHub stars](https://img.shields.io/github/stars/riverqueue/river?style=social&color=white)](https://github.com/riverqueue/river/stargazers) | Go | PostgreSQL | High-performance PostgreSQL-backed background job queue for Go with transaction-safe queuing. |
+| [**Dramatiq**](https://github.com/Bogdanp/dramatiq) | [![GitHub stars](https://img.shields.io/github/stars/Bogdanp/dramatiq?style=social&color=white)](https://github.com/Bogdanp/dramatiq/stargazers) | Python | RabbitMQ, Redis | Fast, reliable distributed background task processing library for Python 3 focusing on simplicity. |
+| [**pg-boss**](https://github.com/timgit/pg-boss) | [![GitHub stars](https://img.shields.io/github/stars/timgit/pg-boss?style=social&color=white)](https://github.com/timgit/pg-boss/stargazers) | JavaScript / TypeScript | PostgreSQL | Node.js background job queue built atop PostgreSQL using SKIP LOCKED for atomic job dispatch without Redis. |
+| [**Bee-Queue**](https://github.com/bee-queue/bee-queue) | [![GitHub stars](https://img.shields.io/github/stars/bee-queue/bee-queue?style=social&color=white)](https://github.com/bee-queue/bee-queue/stargazers) | JavaScript | Redis | High-performance, low-overhead Redis-backed task queue for Node.js optimized for speed and short-running tasks. |
 
+---
 
-**BullMQ Pro Standard is $116/month billed annually** (or $139 monthly); Embedded is **$995/month**; Enterprise is custom . The commercial license is per-organization, not per-deployment .
+## Architecture & Metering Comparison
 
+When evaluating background job processors and task queues, metering models significantly impact infrastructure costs:
 
+1. **Per-Action / Durable State (e.g., Temporal):** Billed based on state transitions and durable actions. Best for mission-critical workflows where failure recovery and state persistence justify granular tracking.
+2. **Per-Execution / Step-Function (e.g., Inngest):** Billed on function invocations and flow executions. Ideal for multi-step async pipelines and serverless web applications.
+3. **Per-Compute-Second (e.g., Trigger.dev):** Billed on wall-clock execution time and container compute resources. Ideal for variable-length, long-running batch and AI jobs.
+4. **Per-Message / Request (e.g., AWS SQS, Upstash QStash):** Pure message-broker billing per payload or HTTP dispatch. Extremely cost-effective for high-frequency lightweight notification and message dispatch.
+5. **Fixed Commercial Licenses (e.g., Sidekiq Pro/Enterprise, BullMQ Pro):** Flat organizational or license fees on top of self-hosted infrastructure. Highly cost-effective for high-throughput single-tenant enterprise deployments without usage markups.
 
-## What the search results actually contain
+---
 
+## Contributing
 
-
-**SaaS pricing (verified):**
-
-
-
-| Platform | Entry pricing | Metering |
-
-|---|---|---|
-
-| **Temporal Cloud** | **$50 per million actions**; $150 free credits for 90 days; no base fee; storage $0.042/GBhr active, $0.00105/GBhr retained  | Per action |
-
-| **Trigger.dev** | **Free $0** (20 concurrent runs, $5 compute credits); **Hobby $10/mo** (50 concurrent); **Pro $50/mo** (200 concurrent, +$10/50)  | Per second compute + per run invocation |
-
-| **Inngest** | **Free $0** (50K executions, 5 seats); **Pro $99/mo** (1M executions, 15 seats); **Business $499/mo** (10M executions)  | Per execution |
-
-| **QStash (Upstash)** | **Free $0** (1,000 messages/day); **Pay-as-you-go $1 per 100K messages**; **Fixed 1M $180/mo**; **Fixed 10M $420/mo**  | Per message (retries free) |
-
-| **Sidekiq Enterprise** | **$269/month** starting  | Per license |
-
-| **BullMQ Pro** | **$116/month** annual (Standard)  | Per organization |
-
-| **IronWorker** | **$4.99/month** starting  | Per month |
-
-| **AWS SQS** | **Pay-per-request**; no minimum fee  | Per request (64KB chunks) |
-
-
-
-**Open-source projects (verified):**
-
-
-
-| Project | License | What it actually does |
-
-|---|---|---|
-
-| **Celery** | BSD-3-Clause | Distributed task queue library; no hosted service, no commercial tiers  |
-
-| **Sidekiq (OSS)** | Open source | Ruby background job framework; Pro/Enterprise are commercial add-ons  |
-
-| **BullMQ (OSS)** | Open source | Node.js job queue; Pro is commercial add-on  |
-
-| **FastQ** | Open source (C) | Redis-backed job queue; claims 10x throughput and 90% less memory than BullMQ/Sidekiq; Pro adds cron, rate limiting, DAG workflows, metrics  |
-
-
-
-## What I recommend
-
-
-
-**Remove "Zoho Worker" and "Celery Cloud"**—neither exists. Reframe Zoho as a Catalyst feature, and list Celery as open source only.
-
-
-
-**Split into two honest categories:**
-
-
-
-**1. SaaS Background Job Platforms** (proprietary):
-
-- **Temporal Cloud** — $50/M actions, no base fee 
-
-- **Trigger.dev** — Free to Pro $50/mo 
-
-- **Inngest** — Free to Business $499/mo 
-
-- **QStash** — Free to Fixed 10M $420/mo 
-
-- **AWS SQS** — pay-per-request 
-
-- **Sidekiq Enterprise** — $269/mo 
-
-- **BullMQ Pro** — $116/mo annual 
-
-- **IronWorker** — $4.99/mo 
-
-
-
-**2. Open-Source Job Queues:**
-
-- **Celery** — BSD-3-Clause, library only 
-
-- **Sidekiq OSS** — Ruby, Pro/Enterprise commercial 
-
-- **BullMQ OSS** — Node.js, Pro commercial 
-
-- **FastQ** — C/Redis, claims 10x throughput 
-
-
-
-**Flag the metering differences explicitly:** per-action (Temporal) , per-execution (Inngest) , per-message (QStash) , per-request (SQS) , and per-compute-second (Trigger.dev)  produce incomparable costs at the same job volume.
-
-
-
-If you paste your current `README.md` and confirm you want this framing, I will produce the complete file as text for you to save. I will not list Zoho Worker or Celery Cloud as products, fabricate pricing, or present libraries as SaaS platforms.
+Contributions are welcome! Please feel free to submit a pull request with new task queues, worker engines, or improvements to existing documentation.
