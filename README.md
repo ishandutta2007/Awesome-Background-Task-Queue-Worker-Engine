@@ -1,34 +1,47 @@
-# Awesome Background Task Queues, Job Schedulers & Worker Engines [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+<p align="center">
+  <img src="./assets/banner.svg" alt="Awesome Background Task Queues and Distributed Worker Engines Banner" width="100%" />
+</p>
 
-> A curated list of awesome background task queues, distributed job workers, asynchronous processing engines, and durable workflow orchestrators.
+# 🚀 Awesome Background Task Queues, Job Schedulers & Worker Engines
+
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://awesome.re"><img src="https://awesome.re/badge.svg" alt="Mentioned in Awesome" /></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
+
+> 🌟 A curated list of awesome background task queues, distributed job workers, asynchronous processing engines, and durable workflow orchestrators.
 
 Background task queues and worker engines allow applications to offload time-consuming, I/O-heavy, or periodic tasks (like image processing, email delivery, AI agent orchestration, and payment processing) from HTTP request-response cycles, ensuring resilience, lower latency, and graceful horizontal scalability.
 
 ---
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [Sector Overview & Market Dynamics](#sector-overview--market-dynamics)
-- [SaaS & Managed Platforms](#saas--managed-platforms)
-- [Open-Source Task Queues & Worker Engines](#open-source-task-queues--worker-engines)
-- [Architecture & Metering Comparison](#architecture--metering-comparison)
-- [Contributing](#contributing)
+- [📊 Sector Overview & Market Dynamics](#-sector-overview--market-dynamics)
+- [☁️ SaaS & Managed Platforms](#️-saas--managed-platforms)
+- [🛠️ Open-Source Task Queues & Worker Engines](#️-open-source-task-queues--worker-engines)
+- [📐 Architecture & Metering Comparison](#-architecture--metering-comparison)
+- [📈 Star History](#-star-history)
+- [🤝 Contributing](#-contributing)
+- [💖 Support](#-support)
 
 ---
 
-## Sector Overview & Market Dynamics
+## 📊 Sector Overview & Market Dynamics
 
-The workflow orchestration and job scheduling software market is estimated at **$13 billion to $18 billion**, projected to grow at a **13%–23% CAGR** to surpass **$40+ billion** driven by cloud modernization and autonomous AI agent workloads. 
+The workflow orchestration and job scheduling software market is estimated at **$13 billion to $18 billion**, projected to grow at a **13%–23% CAGR** to surpass **$40+ billion** driven by cloud modernization and autonomous AI agent workloads. 🌐
 
 The market dynamics exhibit a barbell structure:
-- **Open-source & developer libraries are highly fragmented**: Developers choose specialized libraries matched to their programming languages (e.g., Celery for Python, BullMQ for Node.js, Sidekiq for Ruby, Asynq for Go) and broker backends (Redis, PostgreSQL, RabbitMQ).
-- **Managed cloud infrastructure is consolidating**: High-scale enterprise deployments gravitate toward hyperscaler managed primitives (such as AWS SQS) or high-growth specialized durable workflow platforms (such as Temporal Cloud), demonstrating strong consolidation at the managed infrastructure tier.
+- 🧩 **Open-source & developer libraries are highly fragmented**: Developers choose specialized libraries matched to their programming languages (e.g., Celery for Python, BullMQ for Node.js, Sidekiq for Ruby, Asynq for Go) and broker backends (Redis, PostgreSQL, RabbitMQ).
+- 🏢 **Managed cloud infrastructure is consolidating**: High-scale enterprise deployments gravitate toward hyperscaler managed primitives (such as AWS SQS) or high-growth specialized durable workflow platforms (such as Temporal Cloud), demonstrating strong consolidation at the managed infrastructure tier.
 
 ---
 
-## SaaS & Managed Platforms
+## ☁️ SaaS & Managed Platforms
 
-The table below outlines managed background job processing platforms and developer cloud queues, sorted by company size (valuation / revenue run-rate / market capitalization in descending order).
+The table below outlines managed background job processing platforms and developer cloud queues, sorted by company size (valuation / revenue run-rate / market capitalization in descending order). 💼
 
 | Platform | Company Size (Valuation / Revenue / Market Cap) | Starting Tier Pricing | Free Tier Limits / Free Trial | Deployment / Architecture |
 |---|---|---|---|---|
@@ -42,9 +55,9 @@ The table below outlines managed background job processing platforms and develop
 
 ---
 
-## Open-Source Task Queues & Worker Engines
+## 🛠️ Open-Source Task Queues & Worker Engines
 
-Curated open-source task queue systems, background workers, and workflow orchestrators, sorted by GitHub star count in descending order.
+Curated open-source task queue systems, background workers, and workflow orchestrators, sorted by GitHub star count in descending order. 🌟
 
 | Repository | GitHub Stars | Primary Language | Broker / Backend Storage | Highlights & Primary Focus |
 |---|---|---|---|---|
@@ -70,9 +83,9 @@ Curated open-source task queue systems, background workers, and workflow orchest
 
 ---
 
-## Architecture & Metering Comparison
+## 📐 Architecture & Metering Comparison
 
-When evaluating background job processors and task queues, metering models significantly impact infrastructure costs:
+When evaluating background job processors and task queues, metering models significantly impact infrastructure costs: 💡
 
 1. **Per-Action / Durable State (e.g., Temporal):** Billed based on state transitions and durable actions. Best for mission-critical workflows where failure recovery and state persistence justify granular tracking.
 2. **Per-Execution / Step-Function (e.g., Inngest):** Billed on function invocations and flow executions. Ideal for multi-step async pipelines and serverless web applications.
@@ -82,6 +95,23 @@ When evaluating background job processors and task queues, metering models signi
 
 ---
 
-## Contributing
+## 📈 Star History
 
-Contributions are welcome! Please feel free to submit a pull request with new task queues, worker engines, or improvements to existing documentation.
+[![Star History Chart](https://www.star-history.com/svg?repos=ishandutta2007/Awesome-Background-Task-Queue-Worker-Engine&type=date&legend=top-left)](https://www.star-history.com/#ishandutta2007/Awesome-Background-Task-Queue-Worker-Engine&type=date&legend=top-left)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a pull request with new task queues, worker engines, or improvements to existing documentation. 🌟
+
+---
+
+## 💖 Support
+
+Thank you so much for visiting and using this resource! 🙏 If you found this repository helpful, please consider:
+- ⭐ **Starring** the repository to help others discover it
+- 🍴 **Forking** it to keep your own reference copy
+- 📢 **Sharing** it with friends and engineering teammates
+
+If you'd like to support the ongoing maintenance and curation of this project, you can buy me a coffee via the [GitHub Sponsors Dashboard](https://github.com/sponsors/ishandutta2007). Your support is greatly appreciated! ☕✨
